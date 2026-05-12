@@ -20,7 +20,7 @@ class Program
             Console.WriteLine("Guess the Magic Number from 1-100.");
             // Get Random Number for magic number
             Random randomGenerator = new Random();
-            magicNum = randomGenerator.Next(1, 100);
+            magicNum = randomGenerator.Next(1, 101);
             // Reset count
             count = 0;
 
