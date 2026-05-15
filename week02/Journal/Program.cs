@@ -23,12 +23,12 @@ class Program
                 Entry _newEntry = new Entry();
                 _newEntry.Display();
 
-                //_journal.AddEntry(_newEntry);
+                _journal.AddEntry(_newEntry);
             }
             else if (choice == "2")
             {
-                Console.WriteLine("Display");
-                //_journal.DisplayAll();
+                Console.WriteLine();
+                _journal.DisplayAll();
             }
             else if (choice == "3")
             {

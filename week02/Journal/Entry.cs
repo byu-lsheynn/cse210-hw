@@ -1,9 +1,9 @@
 public class Entry
 {
     // Variable Declaration
-    string _date;
-    string _promptText;
-    string _entryText;
+    public string _date;
+    public string _promptText;
+    public string _entryText;
 
     public Entry()
     {
@@ -15,9 +15,7 @@ public class Entry
     {
         Console.WriteLine(_promptText);
         Console.Write("> ");
-        string response = Console.ReadLine();
+        _entryText = Console.ReadLine();
         _date = DateTime.Now.ToShortDateString();
-
-        _entryText = $"Date: {_date} - Prompt: {_promptText}\n{response}";
     }
 }
