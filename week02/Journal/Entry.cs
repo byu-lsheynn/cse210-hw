@@ -14,9 +14,10 @@ public class Entry
     public void Display()
     {
         Console.WriteLine(_promptText);
-        _entryText = Console.ReadLine();
-        _date = DateTime.Now.ToString();
+        Console.Write("> ");
+        string response = Console.ReadLine();
+        _date = DateTime.Now.ToShortDateString();
 
-        //Console.WriteLine($"Saved on: {_date}");
+        _entryText = $"Date: {_date} - Prompt: {_promptText}\n{response}";
     }
 }
