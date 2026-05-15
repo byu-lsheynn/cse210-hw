@@ -7,17 +7,18 @@ class Program
         // Variable Declaration
         Journal _journal = new Journal();
         Menu _menuList = new Menu();
-        string choice = "";
+        string _choice = "";
+        string _filename;
         
         do
         {
             
             Console.WriteLine();
             _menuList.DisplayMenu();
-            choice = Console.ReadLine();
+            _choice = Console.ReadLine();
 
 
-            if (choice == "1")
+            if (_choice == "1")
             {
                 Console.WriteLine();
                 Entry _newEntry = new Entry();
@@ -25,22 +26,30 @@ class Program
 
                 _journal.AddEntry(_newEntry);
             }
-            else if (choice == "2")
+            else if (_choice == "2")
             {
                 Console.WriteLine();
                 _journal.DisplayAll();
             }
-            else if (choice == "3")
+            else if (_choice == "3")
             {
-                Console.WriteLine("Load");
-                //_journal.LoadFromFile();
+                Console.WriteLine("");
+                Console.WriteLine("What is the filename?");
+                _filename = Console.ReadLine();
+
+                _journal.LoadFromFile(_fileName);
+                _journal.DisplayAll();
             }
-            else if (choice == "4")
+            else if (_choice == "4")
             {
-                Console.WriteLine("Save");
-                //_journal.SaveToFile();
+                Console.WriteLine();
+                Console.WriteLine("What is the filename?");
+                _fileName = Console.ReadLine();
+
+                _journal.SaveToFile(_fileName);
+                Console.WriteLine("Journal Saved!");
             }
-            else if (choice == "5")
+            else if (_choice == "5")
             {
                 Console.WriteLine("Have a great day!");
                 return;
@@ -50,7 +59,7 @@ class Program
                 Console.WriteLine("Invalid choice! Please choose again.");
             }
             
-        } while (choice != "5");
+        } while (_choice != "5");
 
 
             
