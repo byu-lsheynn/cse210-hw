@@ -13,11 +13,11 @@ public class PromptGenerator
         _prompts.Add("If I had one thing I could do over today, what would it be? ");
     }
 
-
     public string GetRandomPrompt()
     {
-        string randomPrompt = "This is a prompt.";
+        Random randomGenerator = new Random();
 
-        return randomPrompt;
+        int i = randomGenerator.Next(0, _prompts.Count);
+        return _prompts[i];
     }
 }
