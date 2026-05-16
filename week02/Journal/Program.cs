@@ -1,3 +1,5 @@
+// Created a menu class
+
 using System;
 
 class Program
@@ -7,12 +9,13 @@ class Program
         // Variable Declaration
         Journal _journal = new Journal();
         Menu _menuList = new Menu();
+        PromptGenerator _promptGen = new PromptGenerator();
         string _choice = "";
-        string _filename;
-        
+        string _fileName;
+
         do
         {
-            
+
             Console.WriteLine();
             _menuList.DisplayMenu();
             _choice = Console.ReadLine();
@@ -22,6 +25,8 @@ class Program
             {
                 Console.WriteLine();
                 Entry _newEntry = new Entry();
+
+                _newEntry._promptText = _promptGen.GetRandomPrompt();
                 _newEntry.Display();
 
                 _journal.AddEntry(_newEntry);
@@ -35,7 +40,7 @@ class Program
             {
                 Console.WriteLine("");
                 Console.WriteLine("What is the filename?");
-                _filename = Console.ReadLine();
+                _fileName = Console.ReadLine();
 
                 _journal.LoadFromFile(_fileName);
                 _journal.DisplayAll();
@@ -58,12 +63,7 @@ class Program
             {
                 Console.WriteLine("Invalid choice! Please choose again.");
             }
-            
+
         } while (_choice != "5");
-
-
-            
-
-            
     }
 }

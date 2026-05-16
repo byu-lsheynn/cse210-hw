@@ -5,12 +5,6 @@ public class Entry
     public string _promptText;
     public string _entryText;
 
-    public Entry()
-    {
-        PromptGenerator _prompt = new PromptGenerator();
-        _promptText = _prompt.GetRandomPrompt();
-    }
-
     public void Display()
     {
         Console.WriteLine(_promptText);
