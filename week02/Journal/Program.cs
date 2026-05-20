@@ -1,4 +1,4 @@
-// Created a menu class
+// Created a subclass Menu where you could choose an option to add or create your own prompt.
 
 using System;
 
