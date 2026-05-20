@@ -23,13 +23,38 @@ class Program
 
             if (_choice == "1")
             {
-                Console.WriteLine();
-                Entry _newEntry = new Entry();
+                while (true)
+                {
+                    Console.WriteLine();
+                    _menuList.DisplaySubMenu();
+                    string _subChoice = Console.ReadLine();
 
-                _newEntry._promptText = _promptGen.GetRandomPrompt();
-                _newEntry.Display();
+                    if (_subChoice == "1")
+                    {
+                        Console.WriteLine();
+                        Entry _newEntry = new Entry();
 
-                _journal.AddEntry(_newEntry);
+                        _newEntry._promptText = _promptGen.GetRandomPrompt();
+                        _newEntry.Display();
+
+                        _journal.AddEntry(_newEntry);
+                    }
+                    else if (_subChoice == "2")
+                    {
+                        Console.WriteLine();
+                        Entry _newEntry = new Entry();
+
+                        Console.WriteLine("New Prompt:");
+                        _newEntry._promptText = Console.ReadLine();
+                        _newEntry.Display();
+
+                        _journal.AddEntry(_newEntry);
+                    }
+                    else if (_subChoice == "3")
+                    {
+                        break;
+                    }
+                }
             }
             else if (_choice == "2")
             {

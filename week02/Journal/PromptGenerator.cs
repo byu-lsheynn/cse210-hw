@@ -20,4 +20,9 @@ public class PromptGenerator
         int i = randomGenerator.Next(0, _prompts.Count);
         return _prompts[i];
     }
+
+    public void CreateNewPrompt(string newPrompt)
+    {
+        _prompts.Add(newPrompt);
+    }
 }
