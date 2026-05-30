@@ -2,8 +2,8 @@ using System;
 
 public class Product
 {
-    public string _productName;
-    public string _productID;
+    private string _productName;
+    private string _productID;
     private double _price;
     private int _quantity;
 
@@ -14,6 +14,9 @@ public class Product
         _price = price;
         _quantity = qty;
     }
+
+    public string productName { get => _productName; set => _productName = value; }
+    public string productID { get => _productID; set => _productID = value; }
 
     public double GetTotalProductCost()
     {

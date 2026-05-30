@@ -26,6 +26,13 @@ public class Order
             totalCost += item.GetTotalProductCost();
         }
 
+        if (_customer.LivesInUSA())
+        {
+            totalCost += 5;
+        }
+        else { totalCost += 35; }
+
+
         return totalCost;
     }
 
@@ -36,7 +43,7 @@ public class Order
 
         foreach (var product in _products)
         {
-            sb.AppendLine($"Product: {product._productName} ID: {product._productID}");
+            sb.AppendLine($"Product: {product.productName} ID: {product.productID}");
         }
 
         return sb.ToString();
@@ -47,8 +54,8 @@ public class Order
         StringBuilder sb = new StringBuilder();
         sb.AppendLine("=== SHIPPING LABEL ===");
 
-        sb.AppendLine(_customer._custName);
-        sb.AppendLine(_customer._address.GetFullAddress());
+        sb.AppendLine($"Customer Name: {_customer.custName}");
+        sb.AppendLine($"Address: { _customer.address.GetFullAddress()}");
 
         return sb.ToString();
     }

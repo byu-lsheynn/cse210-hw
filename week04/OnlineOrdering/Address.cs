@@ -17,7 +17,7 @@ public class Address
 
     public bool IsInUSA()
     {
-        if (_country.ToUpper() == "USA" || _country.ToUpper() == "US")
+        if (_country.Equals("USA", StringComparison.OrdinalIgnoreCase) || _country.Equals("United States", StringComparison.OrdinalIgnoreCase))
         {
             return true;
         }
