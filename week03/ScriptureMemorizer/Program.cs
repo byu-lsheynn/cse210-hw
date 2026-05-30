@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 class Program
 {
-    // FOR ENHANCEMENT POINT: I added a new Constructor in Scripture Class to randomly load a verse from a file (scriptures.txt).
+    // FOR CREATIVITY POINT: I added a new Constructor in Scripture Class to randomly get a verse from a file (scriptures.txt).
     static void Main(string[] args)
     {
         // Reference reference = new Reference("John", 3, 16);
