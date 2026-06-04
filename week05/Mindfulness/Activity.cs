@@ -24,7 +24,8 @@ public class Activity
         Console.WriteLine("Well done!!\n");
         Thread.Sleep(3000);
         Console.WriteLine($"You have completed another {_durationInSecond} seconds of the {_activityName}.");
-        ShowSpinner(3);
+        Console.Write("Returning to the menu...");
+        ShowSpinner(5);
     }
 
     public void ShowSpinner(int seconds)
