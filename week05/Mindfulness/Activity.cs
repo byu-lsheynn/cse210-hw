@@ -15,15 +15,26 @@ public class Activity
         Console.WriteLine(_description);
 
         Console.Write("\nHow long, in seconds, would you like for your session? ");
-        _durationInSecond = int.Parse(Console.ReadLine());
+        //_durationInSecond = int.Parse(Console.ReadLine());
+
+        while (!int.TryParse(Console.ReadLine(), out _durationInSecond) || _durationInSecond < 10)
+        {
+            Console.Write("Please enter a valid number of seconds (min: 10): ");
+        }
+
+        Console.Clear();
+        Console.Write("\nGet ready...");
+        ShowSpinner(3);
+        Console.WriteLine();
+        //Console.Clear();
     }
 
     public void DisplayEndMessage()
     {
         Console.WriteLine();
-        Console.WriteLine("Well done!!\n");
-        Thread.Sleep(3000);
-        Console.WriteLine($"You have completed another {_durationInSecond} seconds of the {_activityName}.");
+        Console.WriteLine("Well done!!");
+        ShowSpinner(3);
+        Console.WriteLine($"\nYou have completed another {_durationInSecond} seconds of the {_activityName}.");
         Console.Write("Returning to the menu...");
         ShowSpinner(5);
     }

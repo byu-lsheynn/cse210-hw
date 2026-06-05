@@ -21,7 +21,43 @@ public class ListingActivity : Activity
     public void Run()
     {
         DisplayStartMessage();
-        ShowCountdown(_durationInSecond);
+
+        GetRandomPrompt();
+
+        List<string> userList = GetListFromUser();
+        _count = userList.Count;
+        Console.WriteLine($"You listed {_count} items!");
+
         DisplayEndMessage();
+    }
+
+    public void GetRandomPrompt()
+    {
+        Console.WriteLine("\nList as many responses you can to the following prompt: ");
+
+        Random random = new Random();
+        string prompt = _listingPrompts[random.Next(_listingPrompts.Count())];
+        Console.WriteLine($"--- {prompt} ---");
+
+        Console.WriteLine("You may begin in: ");
+        ShowCountdown(5);
+    }
+
+    public List<string> GetListFromUser()
+    {
+        List<string> entries = new List<string>();
+        DateTime endTime = DateTime.Now.AddSeconds(_durationInSecond);
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            string entry = Console.ReadLine();
+            if (!string.IsNullOrEmpty(entry))
+            {
+                entries.Add(entry);
+            }
+        }
+
+        return entries;
     }
 }
