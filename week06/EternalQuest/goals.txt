@@ -1,0 +1,4 @@
+80
+Simple Goal:Register course|Register the next course needed for the BYU certification|20|True
+Eternal Goal:Daily exercise|Exercise or do stretching for 5 minutes|10
+Checklist Goal:Visit the temple|Go to the temple and perform ordinances|50|1|5|100

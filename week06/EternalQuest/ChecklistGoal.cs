@@ -4,29 +4,69 @@ public class ChecklistGoal : Goal
     private int _target;
     private int _bonus;
 
-    public ChecklistGoal(string name, string descr, int points, int target, int bonus) : base(name, descr, points)
+    public ChecklistGoal(string name, string descr, string points, int target, int bonus) : base(name, descr, points)
     {
+        _amountCompleted = 0;
+        _target = target;
+        _bonus = bonus;
+    }
+
+    // Loading from file
+    public ChecklistGoal(string name, string descr, string points, int amountCompleted, int target, int bonus) : base(name, descr, points)
+    {
+        _amountCompleted = amountCompleted;
         _target = target;
         _bonus = bonus;
     }
 
     public override void RecordEvent()
     {
-        throw new NotImplementedException();
+        if (!IsComplete())
+        {
+            Console.WriteLine($"Congratulations! You earned {_points} points!");
+            _amountCompleted += 1;
+        }
+        else
+        {
+            Console.WriteLine("This goal has already been completed.");
+        }
     }
 
     public override bool IsComplete()
     {
-        throw new NotImplementedException();
+        if (_amountCompleted >= _target)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override string GetDetailsString()
     {
-        return "details";
+        string statusCheck;
+
+        if (IsComplete())
+        {
+            statusCheck = "[x]";
+        }
+        else
+        {
+            statusCheck = "[ ]";
+        }
+
+        return $"{statusCheck} {_shortName} ({_description}) -- Currently completed: {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
     {
-        throw new NotImplementedException();
+        return $"Checklist Goal:{_shortName}|{_description}|{_points}|{_amountCompleted}|{_target}|{_bonus}";
+    }
+
+    public int GetBonus()
+    {
+        return _bonus;
     }
 }
