@@ -18,7 +18,7 @@ public class SimpleGoal : Goal
         if (!_isComplete)
         {
             _isComplete = true;
-            Console.WriteLine($"Congratulations! You earned {_points} points!");
+            Console.WriteLine($"\nCongratulations! You earned {_points} points!");
         }
         else
         {

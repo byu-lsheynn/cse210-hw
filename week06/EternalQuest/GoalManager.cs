@@ -82,7 +82,7 @@ public class GoalManager
         Console.Write("Which type of goal would you like to create? ");
         string goalType = Console.ReadLine();
 
-        Console.Write("What is the name of your goals? ");
+        Console.Write("\nWhat is the name of your goals? ");
         string name = Console.ReadLine();
         Console.Write("What is a short description of it? ");
         string descr = Console.ReadLine();
@@ -149,7 +149,7 @@ public class GoalManager
 
     public void SaveGoals()
     {
-        Console.Write("What is the filename for the goal file?");
+        Console.Write("What is the filename for the goal file? ");
         string filename = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(filename))
@@ -160,7 +160,7 @@ public class GoalManager
                 outputFile.WriteLine(goal.GetStringRepresentation());
             }
         }
-        Console.WriteLine("Goals save successfully.");
+        Console.WriteLine("\nGoals save successfully.");
     }
     
     public void LoadGoals()
@@ -170,7 +170,7 @@ public class GoalManager
 
         if(!File.Exists(filename))
         {
-            Console.WriteLine("File not found.");
+            Console.WriteLine("\nFile not found.");
             return;
         }
 
@@ -185,21 +185,39 @@ public class GoalManager
             string type = parts[0];
             string[] details = parts[1].Split('|');
 
+            string name = details[0];
+            string descr = details[1];
+            string points = details[2];
+
+
             if (type == "Simple Goal")
             {
-                _goals.Add(new SimpleGoal(details[0], details[1], details[2], bool.Parse(details[3])));
+                bool isComplete = bool.Parse(details[3]);
+                _goals.Add(new SimpleGoal(name, descr, points, isComplete));
             }
             else if (type == "Eternal Goal")
             {
-                _goals.Add(new EternalGoal(details[0], details[1], details[2]));
+                int streak = int.Parse(details[3]);
+
+                DateTime? lastRec = null;
+                if (details[4] != "None")
+                {
+                    lastRec = DateTime.Parse(details[4]);
+                }
+
+                _goals.Add(new EternalGoal(name, descr, points, streak, lastRec));
             }
             else if (type == "Checklist Goal")
             {
-                _goals.Add(new ChecklistGoal(details[0], details[1], details[2], int.Parse(details[3]), int.Parse(details[4]), int.Parse(details[5])));
+                int completedCount = int.Parse(details[3]);
+                int target = int.Parse(details[4]);
+                int bonus = int.Parse(details[5]);
+
+                _goals.Add(new ChecklistGoal(name, descr, points, completedCount, target, bonus));
             }
         }
 
-        Console.WriteLine("File successfully loaded!\n");
+        Console.WriteLine("\nFile successfully loaded!\n");
         ListGoalDetails();
     }
 }

@@ -1,4 +1,4 @@
-80
-Simple Goal:Register course|Register the next course needed for the BYU certification|20|True
-Eternal Goal:Daily exercise|Exercise or do stretching for 5 minutes|10
-Checklist Goal:Visit the temple|Go to the temple and perform ordinances|50|1|5|100
+60
+Eternal Goal:Daily exercise|Exercise for at least 5 minutes every day|10|1|2026-06-15
+Checklist Goal:Temple visit|Visit the temple and perform ordinances|50|1|5|200
+Simple Goal:Course registration|Register courses for BYU Pathway certifcation|50|False
