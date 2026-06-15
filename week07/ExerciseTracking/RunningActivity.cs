@@ -4,7 +4,7 @@ public class RunningActivity : Activity
 {
     private double _distanceInKm;
 
-    public RunningActivity(DateTime date, int duration, double distance) : base(date, duration)
+    public RunningActivity(string date, int duration, double distance) : base(date, duration)
     {
         _distanceInKm = distance;
     }
