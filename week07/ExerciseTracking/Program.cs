@@ -6,18 +6,20 @@ class Program
     {
         Console.Clear();
         Console.WriteLine(new string('~', 40));
-        Console.WriteLine("            Exercise Tracker");
+        Console.WriteLine("            Activity Summary");
         Console.WriteLine(new string('~', 40));
 
         string date = DateTime.Now.ToString("dd MMM yyyy");
+        List<Activity> activities = new List<Activity>();
+        activities.Add(new Running(date, 30, 5));
+        activities.Add(new Cycling(date, 60, 15.5));
+        activities.Add(new Swimming(date, 30, 5));
 
-        RunningActivity running = new RunningActivity(date, 30, 5);
-        Console.WriteLine($"> {running.GetSummary()}\n");
+        foreach (Activity activity in activities)
+        {
+            Console.WriteLine(activity.GetSummary());
+        }
 
-        CyclingActivity cycling = new CyclingActivity(date, 60, 15.5);
-        Console.WriteLine($"> {cycling.GetSummary()}\n");
-
-        SwimmingActivity swimming = new SwimmingActivity(date, 30, 5);
-        Console.WriteLine($"> {swimming.GetSummary()}\n");
+        Console.WriteLine();
     }
 }

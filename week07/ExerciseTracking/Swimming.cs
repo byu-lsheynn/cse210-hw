@@ -1,8 +1,8 @@
-public class SwimmingActivity : Activity
+public class Swimming : Activity
 {
     private int _lapCount;
 
-    public SwimmingActivity(string date, int duration, int laps) : base(date, duration)
+    public Swimming(string date, int duration, int laps) : base(date, duration)
     {
         _lapCount = laps;
     }
@@ -20,10 +20,5 @@ public class SwimmingActivity : Activity
     public override double GetPace()
     {
         return Math.Round(_durationInMin / GetDistanceInKm(), 1);
-    }
-
-    public override string GetSummary()
-    {
-        return $"{_date} Swimming ({_durationInMin} min)- Distance: {GetDistanceInKm():F1} km, Speed: {GetSpeedInKph()} kph, Pace: {GetPace()} min per km";
     }
 }

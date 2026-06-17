@@ -1,10 +1,8 @@
-using Microsoft.VisualBasic;
-
-public class RunningActivity : Activity
+public class Running : Activity
 {
     private double _distanceInKm;
 
-    public RunningActivity(string date, int duration, double distance) : base(date, duration)
+    public Running(string date, int duration, double distance) : base(date, duration)
     {
         _distanceInKm = distance;
     }
@@ -22,10 +20,5 @@ public class RunningActivity : Activity
     public override double GetPace()
     {
         return Math.Round(_durationInMin / _distanceInKm);
-    }
-
-    public override string GetSummary()
-    {
-        return $"{_date} Running ({_durationInMin} min)- Distance: {GetDistanceInKm()} km, Speed: {GetSpeedInKph()} kph, Pace: {GetPace()} min per km"; 
     }
 }

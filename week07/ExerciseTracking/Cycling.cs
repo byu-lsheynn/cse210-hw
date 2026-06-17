@@ -1,8 +1,8 @@
-public class CyclingActivity : Activity
+public class Cycling : Activity
 {
     private double _speedInKph;
 
-    public CyclingActivity(string date, int duration, double speed) : base(date, duration)
+    public Cycling(string date, int duration, double speed) : base(date, duration)
     {
         _speedInKph = speed;
     }
@@ -20,10 +20,5 @@ public class CyclingActivity : Activity
     public override double GetPace()
     {
         return Math.Round(60 / _speedInKph, 1);
-    }
-
-    public override string GetSummary()
-    {
-        return $"{_date} Cycling ({_durationInMin} min)- Distance: {GetDistanceInKm()} km, Speed: {GetSpeedInKph()} kph, Pace: {GetPace()} min per km";
     }
 }
